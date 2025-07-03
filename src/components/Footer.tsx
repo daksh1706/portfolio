@@ -84,7 +84,7 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-white font-semibold text-lg mb-6">Get In Touch</h4>
             <div className="space-y-3">
-              <p className="text-slate-400">dakshmaru10@gmail.com@gmail.com</p>
+              <p className="text-slate-400">dakshmaru10@gmail.com</p>
               <p className="text-slate-400">Chittorgarh, Rajasthan, India</p>
               <p className="text-slate-400">Available for opportunities</p>
             </div>
