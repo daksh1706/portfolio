@@ -1,0 +1,215 @@
+.myworks-page {
+  min-height: 100vh;
+  background-color: var(--backgroundColor);
+  padding: 80px 40px;
+  box-sizing: border-box;
+}
+
+.myworks-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.back-button {
+  display: inline-block;
+  color: var(--accentColor);
+  text-decoration: none;
+  font-size: 16px;
+  margin-bottom: 30px;
+  transition: all 0.3s ease;
+  padding: 10px 20px;
+  border: 1px solid var(--accentColor);
+  border-radius: 30px;
+}
+
+.back-button:hover {
+  background: var(--accentColor);
+  color: #000;
+}
+
+.myworks-header h1 {
+  font-size: 70px;
+  font-weight: 500;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.myworks-header h1 span {
+  color: var(--accentColor);
+}
+
+.myworks-header p {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.myworks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.myworks-card {
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+.myworks-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accentColor);
+  box-shadow: 0 20px 40px rgba(194, 164, 255, 0.15);
+}
+
+.myworks-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px 12px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.myworks-card-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dot-red {
+  background: #ff5f56;
+}
+
+.dot-yellow {
+  background: #ffbd2e;
+}
+
+.dot-green {
+  background: #27c93f;
+}
+
+.myworks-card-number {
+  font-size: 13px;
+  color: var(--accentColor);
+  font-weight: 600;
+  background: rgba(194, 164, 255, 0.1);
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(194, 164, 255, 0.25);
+}
+
+.myworks-card-info {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.myworks-card-info h3 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #fff;
+}
+
+.myworks-card-category {
+  font-size: 13px;
+  color: var(--accentColor);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 12px;
+}
+
+.myworks-card-description {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+  margin-bottom: 18px;
+  flex: 1;
+}
+
+.myworks-tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.myworks-tech-tag {
+  font-size: 12px;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.myworks-card-links {
+  display: flex;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.myworks-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.live-btn {
+  background: var(--accentColor);
+  color: #000;
+}
+
+.live-btn:hover {
+  background: #fff;
+  transform: translateY(-2px);
+}
+
+.github-btn {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.github-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: var(--accentColor);
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media only screen and (max-width: 768px) {
+  .myworks-page {
+    padding: 60px 20px;
+  }
+
+  .myworks-header h1 {
+    font-size: 45px;
+  }
+
+  .myworks-grid {
+    grid-template-columns: 1fr;
+  }
+}
