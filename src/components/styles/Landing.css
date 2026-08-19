@@ -1,12 +1,30 @@
-/* Mobile Photo - hidden by default, shown only on mobile */
+/* Mobile Photo - hidden by default */
 .mobile-photo {
   display: none;
 }
 
-/* Ensure 3D character is hidden on mobile while preserving full text animations */
+/* Ensure 3D character is displayed on mobile with full animations */
 @media only screen and (max-width: 768px) {
   .character-model {
-    display: none !important;
+    display: block !important;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .character-model canvas {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100% !important;
+    height: 100% !important;
+    pointer-events: none;
   }
 
   .landing-section,
@@ -18,12 +36,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 80px 20px 50px 20px;
+    justify-content: space-between;
+    padding: 100px 20px 60px 20px;
     text-align: center;
+    position: relative;
+    z-index: 10;
   }
 
-  /* Intro / Name */
+  /* Intro / Name (top) */
   .landing-intro {
     position: relative !important;
     top: auto !important;
@@ -46,7 +66,7 @@
   }
 
   .landing-intro h1 {
-    font-size: 36px !important;
+    font-size: 34px !important;
     line-height: 1.15 !important;
     margin: 0;
     word-spacing: 0.1em;
@@ -58,27 +78,7 @@
     margin-bottom: 4px;
   }
 
-  /* Mobile photo */
-  .mobile-photo {
-    display: block;
-    position: relative !important;
-    width: 100%;
-    max-width: 240px;
-    margin: 0 auto 25px auto;
-    z-index: 2;
-    order: 2;
-  }
-
-  .mobile-photo img {
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
-    border: 2px solid rgba(194, 164, 255, 0.4);
-    box-shadow: 0 0 35px rgba(194, 164, 255, 0.3);
-    object-fit: cover;
-  }
-
-  /* Subtitles with full GSAP rotation support */
+  /* Subtitles with full GSAP rotation support (bottom) */
   .landing-info {
     position: relative !important;
     top: auto !important;
@@ -95,7 +95,7 @@
     height: auto !important;
     width: 100% !important;
     order: 3;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
   }
 
   .landing-info h3 {
@@ -108,11 +108,11 @@
 
   h2.landing-info-h2 {
     color: #c481ff;
-    font-size: 30px !important;
-    line-height: 34px !important;
+    font-size: 28px !important;
+    line-height: 32px !important;
     margin: 0 !important;
     position: relative;
-    height: 34px;
+    height: 32px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -120,11 +120,11 @@
   }
 
   .landing-info h2 {
-    font-size: 26px !important;
-    line-height: 30px !important;
+    font-size: 24px !important;
+    line-height: 28px !important;
     margin: 0 !important;
     position: relative;
-    height: 30px;
+    height: 28px;
     display: flex;
     justify-content: center;
     align-items: center;
