@@ -3,7 +3,7 @@
   display: none;
 }
 
-/* Remove mobile photo and ensure 3D character is always hidden on mobile */
+/* Ensure 3D character is hidden on mobile while preserving full text animations */
 @media only screen and (max-width: 768px) {
   .character-model {
     display: none !important;
@@ -17,11 +17,13 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    padding: 0 15px;
-    padding-bottom: 40px;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px 50px 20px;
+    text-align: center;
   }
 
-  /* Fix spacing between name and subtitle */
+  /* Intro / Name */
   .landing-intro {
     position: relative !important;
     top: auto !important;
@@ -29,35 +31,54 @@
     right: auto !important;
     bottom: auto !important;
     transform: none !important;
-    padding-top: 40px;
-    /* Shift higher up */
     margin-bottom: 20px;
     z-index: 10;
     text-align: center;
     width: 100% !important;
     order: 1;
-    /* First: Name */
     height: auto !important;
   }
 
-  .landing-intro h1 {
-    word-spacing: 0.1em;
-    font-size: 32px !important;
-    /* Ensure nice size */
-    line-height: 1.2 !important;
-    margin: 0;
+  .landing-intro h2 {
+    font-size: 18px !important;
+    margin-bottom: 4px;
+    letter-spacing: 2px;
   }
 
-  /* Ensure name parts display correctly */
+  .landing-intro h1 {
+    font-size: 36px !important;
+    line-height: 1.15 !important;
+    margin: 0;
+    word-spacing: 0.1em;
+  }
+
   .landing-intro h1 br {
     display: block;
-    /* Keep break on mobile for 2 lines, or use display:none for 1 line */
     content: " ";
-    /* Fallback */
-    margin-bottom: 5px;
+    margin-bottom: 4px;
   }
 
-  /* Subtitles Container */
+  /* Mobile photo */
+  .mobile-photo {
+    display: block;
+    position: relative !important;
+    width: 100%;
+    max-width: 240px;
+    margin: 0 auto 25px auto;
+    z-index: 2;
+    order: 2;
+  }
+
+  .mobile-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    border: 2px solid rgba(194, 164, 255, 0.4);
+    box-shadow: 0 0 35px rgba(194, 164, 255, 0.3);
+    object-fit: cover;
+  }
+
+  /* Subtitles with full GSAP rotation support */
   .landing-info {
     position: relative !important;
     top: auto !important;
@@ -66,85 +87,62 @@
     bottom: auto !important;
     transform: none !important;
     text-align: center;
-    margin-top: 20px;
-    /* Space between name and subtitles */
     z-index: 10;
-    background: transparent;
-    padding-bottom: 50px;
-    /* Add bottom padding for scroll space */
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
     height: auto !important;
-    /* Force auto height */
     width: 100% !important;
     order: 3;
-    /* Third: Subtitles */
+    padding-bottom: 20px;
   }
 
   .landing-info h3 {
-    text-align: center;
-    display: none;
-    /* Hide 'An' if not needed, or keep it static */
-  }
-
-  /* Force static positioning to prevent overlaps */
-  .landing-info h2,
-  h2.landing-info-h2,
-  .landing-h2-1,
-  .landing-h2-info {
-    position: static !important;
-    display: block;
-    width: auto;
-    margin: 0 !important;
-    font-size: 20px !important;
-    line-height: 1.5 !important;
-    white-space: normal;
-    text-align: center;
-    height: auto !important;
-    transform: none !important;
-    /* Remove any transforms */
-  }
-
-  /* Specific styling for the distinct parts */
-  .landing-h2-1 {
-    font-size: 24px !important;
-    color: var(--accentColor);
-    font-weight: 700;
-  }
-
-  .landing-h2-info {
     font-size: 18px !important;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--accentColor);
+    margin-bottom: 4px;
+    display: block;
+    text-align: center;
+  }
+
+  h2.landing-info-h2 {
+    color: #c481ff;
+    font-size: 30px !important;
+    line-height: 34px !important;
+    margin: 0 !important;
+    position: relative;
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .landing-info h2 {
+    font-size: 26px !important;
+    line-height: 30px !important;
+    margin: 0 !important;
+    position: relative;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .landing-h2-1,
+  .landing-h2-2,
+  .landing-h2-3,
+  .landing-h2-info,
+  .landing-h2-info-1,
+  .landing-h2-info-2 {
+    white-space: nowrap;
+    text-align: center;
   }
 
   .landing-info-h2::after {
     display: none;
-  }
-
-  /* Show mobile photo */
-  .mobile-photo {
-    display: block;
-    position: relative !important;
-    width: 100%;
-    max-width: 380px;
-    margin: 0 auto;
-    z-index: 1;
-    order: 2;
-    /* Second: Photo */
-    /* Add fade mask to bottom */
-    -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-    pointer-events: none;
-    transform: none !important;
-  }
-
-  .mobile-photo img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 0 40px rgba(194, 164, 255, 0.4));
   }
 }
 
