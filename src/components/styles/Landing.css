@@ -1,30 +1,12 @@
-/* Mobile Photo - hidden by default */
+/* Mobile Photo - hidden by default, shown only on phones < 768px */
 .mobile-photo {
   display: none;
 }
 
-/* Ensure 3D character is displayed on mobile with full animations */
-@media only screen and (max-width: 768px) {
+/* Phone screens (< 768px) - hide 3D model to prevent horizontal stretching, show neat photo and full animations */
+@media only screen and (max-width: 767px) {
   .character-model {
-    display: block !important;
-    position: fixed;
-    height: 100vh;
-    width: 100vw;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 0;
-    pointer-events: none;
-  }
-
-  .character-model canvas {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100% !important;
-    height: 100% !important;
-    pointer-events: none;
+    display: none !important;
   }
 
   .landing-section,
@@ -32,18 +14,19 @@
     height: auto !important;
     min-height: 100vh;
     max-width: 100vw;
+    width: 100% !important;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    padding: 100px 20px 60px 20px;
+    justify-content: center;
+    padding: 80px 20px 50px 20px;
     text-align: center;
     position: relative;
-    z-index: 10;
+    overflow-x: hidden;
   }
 
-  /* Intro / Name (top) */
+  /* Intro / Name */
   .landing-intro {
     position: relative !important;
     top: auto !important;
@@ -78,7 +61,27 @@
     margin-bottom: 4px;
   }
 
-  /* Subtitles with full GSAP rotation support (bottom) */
+  /* Mobile photo (shown on phones) */
+  .mobile-photo {
+    display: block;
+    position: relative !important;
+    width: 100%;
+    max-width: 220px;
+    margin: 0 auto 25px auto;
+    z-index: 2;
+    order: 2;
+  }
+
+  .mobile-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    border: 2px solid rgba(194, 164, 255, 0.4);
+    box-shadow: 0 0 35px rgba(194, 164, 255, 0.3);
+    object-fit: cover;
+  }
+
+  /* Subtitles with full GSAP rotation support */
   .landing-info {
     position: relative !important;
     top: auto !important;
@@ -95,7 +98,7 @@
     height: auto !important;
     width: 100% !important;
     order: 3;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
   }
 
   .landing-info h3 {

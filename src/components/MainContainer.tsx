@@ -13,11 +13,18 @@ import CallToAction from "./CallToAction";
 import setSplitText from "./utils/splitText";
 
 const MainContainer = ({ children }: PropsWithChildren) => {
+  const [isLaptopOrTab, setIsLaptopOrTab] = useState<boolean>(() => {
+    if (typeof window !== "undefined") {
+      return window.innerWidth >= 768;
+    }
+    return true;
+  });
   const [shouldRenderCharacter, setShouldRenderCharacter] = useState(false);
 
   useEffect(() => {
     const resizeHandler = () => {
       setSplitText();
+      setIsLaptopOrTab(window.innerWidth >= 768);
     };
     resizeHandler();
     window.addEventListener("resize", resizeHandler);
@@ -57,7 +64,7 @@ const MainContainer = ({ children }: PropsWithChildren) => {
       <Cursor />
       <Navbar />
       <SocialIcons />
-      {shouldRenderCharacter && children}
+      {isLaptopOrTab && shouldRenderCharacter && children}
       <div className="container-main">
         <Landing />
         <About />
